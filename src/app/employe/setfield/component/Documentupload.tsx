@@ -9,7 +9,6 @@ import EmployeeController from "@/controllers/employee";
 import CustomComboBox from "@/components/controls/OptionsCombox";
 import { DocumentValidations } from "@/settings/validations";
 import ThankYouModal from "@/components/ThankYouComp";
-import ProfileReview from "@/components/ProfileReview";
 import Combobox from "@/components/controls/ComboBox";
 
 export default function Documentupload({ handleNext, user }: any) {
