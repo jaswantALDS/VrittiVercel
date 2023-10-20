@@ -29,8 +29,7 @@ type schema = {
 
 export default function Qualifications({
   handleNext,
-  handlePrev,
-  user,
+  user
 }: QualificationsProps) {
   const auth = new EmployeeController(user.accessToken);
   const [qualType, setQualType] = useState<any>("");
