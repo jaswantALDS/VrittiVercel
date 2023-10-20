@@ -11,7 +11,6 @@ import EmployeeController from "@/controllers/employee";
 import { emailState } from "../atom";
 import EmailAuth from "@/components/Auth/EmailAuth";
 import VerifyEmail from "@/components/Auth/VerifyEmail";
-import Tabs from "@/app/employe/setfield/component/Tabs";
 import PersonalDetails from "@/components/Auth/PersonalDetails";
 
 const validationSchema = Yup.object().shape({
