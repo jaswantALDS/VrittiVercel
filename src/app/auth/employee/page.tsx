@@ -1,7 +1,5 @@
 "use client";
 import Authentication from "./register/page";
-import PersonalDetails from "./personaldetails/page";
-import Verification from "./verification/page";
 
 function employe() {
   return (
