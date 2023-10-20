@@ -1,0 +1,33 @@
+export interface User {
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone_prefix: null | string;
+  phone: null | number;
+  country: null | string;
+  state: null | string;
+  city: null | string;
+  profile_image: null | string;
+  is_employee: boolean;
+  dob: null | string;
+  gender: null | string;
+  martial_status: null | string;
+  address: null | string;
+  experience: null | string;
+  passport_photo: null | string;
+  current_availability: boolean;
+  current_availability_type: null | string;
+  preferred_mode_interview: null | string;
+  preferred_trade: null | string;
+  status_type: string;
+  is_verified: boolean;
+  personal_profile_completed: boolean;
+  employment_profile_completed: boolean;
+  qualifications_profile_completed: boolean;
+  documents_profile_completed: boolean;
+  is_completed: boolean;
+  fcm: null | string;
+  source: string;
+  accessToken: string | null;
+}
