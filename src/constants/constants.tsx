@@ -1,6 +1,6 @@
 export class Constants {
-  // static API_URL = "https://backend.vrittigroup.com/"; // Define with an initial value
-  static API_URL = "http://192.168.0.15:8000/"; // Define with an initial value
+  static API_URL = "https://backend.vrittigroup.com/"; // Define with an initial value
+  // static API_URL = "http://192.168.0.15:8000/"; // Define with an initial value
   static X_API_KEY: "X API Key";
   static loginEmployer = `${Constants.API_URL}employer/login/`;
   static me = `${Constants.API_URL}employer/me/`;
