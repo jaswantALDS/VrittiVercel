@@ -117,7 +117,7 @@ const EditorJsonComponents = ({ jsonData }: { jsonData: any }) => {
                 className="p-8 bg-footer bg-cover bg-no-repeat rounded-lg flex flex-col flex-wrap justify-start items-start "
               >
                 <p className="pb-3  text-lg font-light text-gray-300 font-space ">
-                  "{block.data.text}"
+                  &quot;{block.data.text}&quot;
                 </p>
                 <div className="flex flex-wrap justify-center items-center">
                   {/* <span className="hidden lg:block border-t-2 mt-0.5  border-white w-10  ">

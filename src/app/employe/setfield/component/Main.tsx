@@ -79,7 +79,7 @@ export default function Main() {
               )}
               {step === 3 && (
                 <p className="text-sm text-gray-700">
-                  Qualifications That Define You: Let's Talk Achievements
+                  Qualifications That Define You: Let &apos; s Talk Achievements
                 </p>
               )}
               {step === 4 && (
