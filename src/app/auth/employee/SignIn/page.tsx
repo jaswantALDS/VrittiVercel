@@ -6,7 +6,6 @@ import Image from "next/image";
 import TextInput from "@/components/textinput";
 import { AppAssets } from "@/constants/assets";
 import { SignInValidations } from "@/settings/validations";
-import EmployeeController from "@/controllers/employee";
 import { signIn } from "next-auth/react";
 
 type schema = {
@@ -115,7 +114,7 @@ export default function SignIn() {
               </div>
               <div className="mb-6 text-center">
                 <p className="text-sm text-gray-700">
-                  Don't have an account?{" "}
+                  Don &apos; t have an account?
                   <a
                     href="/auth/employee/register"
                     className="text-blue-500 underline"

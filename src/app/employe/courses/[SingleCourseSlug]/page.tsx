@@ -6,7 +6,6 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import EditorJsonComponents from "../components/EditorJsonComponents";
-import Accordion from "@/components/ui/Accordion";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import Review from "@/components/ui/Review";
 import Tabs from "@mui/material/Tabs";
