@@ -121,6 +121,7 @@ const SingleCourse = ({ params }: { params: { SingleCourseSlug: string } }) => {
   const taxAmount = (subtotal * taxRate) / 100;
   const total = subtotal + taxAmount;
 
+  console.log("first");
   return (
     <div>
       <CardPrototype>
