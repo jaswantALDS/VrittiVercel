@@ -12,8 +12,6 @@ import Review from "@/components/ui/Review";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import OffCanvas from "@/components/ui/OffCanvas";
-import { AppAssets } from "@/constants/assets";
-import Donation from "./Donation/Donation/donation";
 
 const SingleCourse = ({ params }: { params: { SingleCourseSlug: string } }) => {
   const user: any = useAppSelector((state) => state.userReducer.user);
