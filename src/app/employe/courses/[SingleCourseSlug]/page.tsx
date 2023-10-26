@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import EditorJsonComponents from "../components/EditorJsonComponents";
+import Accordion from "@/components/ui/Accordion";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import Review from "@/components/ui/Review";
 import Tabs from "@mui/material/Tabs";
@@ -21,6 +22,7 @@ const SingleCourse = ({ params }: { params: { SingleCourseSlug: string } }) => {
   const [faq, setFaq] = useState<any>([]);
   const [selectedTab, setSelectedTab] = useState(0);
   const [openCartModal, setOpenCartModal] = useState(false);
+  const [openPayment, setOpenPayment] = useState(false);
 
   const tabs = ["About", "Modules", "FAQ's", "Reviews"];
 
@@ -128,45 +130,80 @@ const SingleCourse = ({ params }: { params: { SingleCourseSlug: string } }) => {
               isOpen={openCartModal}
               onClose={() => setOpenCartModal(false)}
             >
-              <p className="text-xl border-b p-6">Cart</p>
-              <div className="flex flex-col h-[91vh] md:h-[87vh] 2xl:h-[92vh] w-full justify-between">
-                <div className="flex justify-center flex-grow ">
-                  <div className="w-[90%] my-2">
-                    <div className="flex justify-between items-center bg-white rounded-lg p-5">
-                      <div className="flex gap-2 items-center">
-                        <Image
-                          src={data?.feature_image}
-                          alt="image"
-                          width={50}
-                          height={50}
-                          className="rounded-md"
-                        />
-                        <p className="text-lg text-gray-800">{data?.title}</p>
+              {openPayment ? (
+                <>
+                  {" "}
+                  <p className="text-xl border-b p-6">Payment</p>
+                  <div className="flex flex-col h-[91vh] md:h-[87vh] 2xl:h-[92vh] w-full justify-between">
+                    <div className="flex justify-center flex-grow ">
+                      <div className="w-[90%] my-2">
+                        <div className="flex justify-between items-center bg-white rounded-lg p-5">
+                          <div className="flex gap-2 items-center">
+                            <Image
+                              src={data?.feature_image}
+                              alt="image"
+                              width={50}
+                              height={50}
+                              className="rounded-md"
+                            />
+                            <p className="text-lg text-gray-800">Stripe</p>
+                          </div>
+                        </div>
                       </div>
-                      <p className="text-lg text-gray-800">${data?.price}</p>
+                    </div>
+                  </div>{" "}
+                </>
+              ) : (
+                <>
+                  {" "}
+                  <p className="text-xl border-b p-6">Cart</p>
+                  <div className="flex flex-col h-[91vh] md:h-[87vh] 2xl:h-[92vh] w-full justify-between">
+                    <div className="flex justify-center flex-grow ">
+                      <div className="w-[90%] my-2">
+                        <div className="flex justify-between items-center bg-white rounded-lg p-5">
+                          <div className="flex gap-2 items-center">
+                            <Image
+                              src={data?.feature_image}
+                              alt="image"
+                              width={50}
+                              height={50}
+                              className="rounded-md"
+                            />
+                            <p className="text-lg text-gray-800">
+                              {data?.title}
+                            </p>
+                          </div>
+                          <p className="text-lg text-gray-800">
+                            ${data?.price}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-t-2xl text-gray-800">
+                      <div className="flex justify-between py-1 px-3 text-md">
+                        <span>Sub Total</span>
+                        <span>${subtotal}</span> {/* Display subtotal */}
+                      </div>
+                      <div className="flex justify-between text-md py-1 px-3">
+                        <span>All Taxes</span>
+                        <span>${taxAmount}</span> {/* Display tax */}
+                      </div>
+                      <div className="flex justify-between py-1 px-3 text-lg border-t font-semibold">
+                        <span>Total</span>
+                        <span>${total}</span> {/* Display total */}
+                      </div>
+                    </div>
+                    <div className="bg-white flex justify-center">
+                      <button
+                        onClick={() => setOpenPayment(true)}
+                        className="bg-orange-400 hover:bg-orange-300 transition-all w-[95%] rounded-md p-3 my-2 text-white"
+                      >
+                        Checkout
+                      </button>
                     </div>
                   </div>
-                </div>
-                <div className="bg-white rounded-t-2xl text-gray-800">
-                  <div className="flex justify-between py-1 px-3 text-md">
-                    <span>Sub Total</span>
-                    <span>${subtotal}</span> {/* Display subtotal */}
-                  </div>
-                  <div className="flex justify-between text-md py-1 px-3">
-                    <span>All Taxes</span>
-                    <span>${taxAmount}</span> {/* Display tax */}
-                  </div>
-                  <div className="flex justify-between py-1 px-3 text-lg border-t font-semibold">
-                    <span>Total</span>
-                    <span>${total}</span> {/* Display total */}
-                  </div>
-                </div>
-                <div className="bg-white flex justify-center">
-                  <button className="bg-orange-400 hover:bg-orange-300 transition-all w-[95%] rounded-md p-3 my-2 text-white">
-                    Payment
-                  </button>
-                </div>
-              </div>
+                </>
+              )}
             </OffCanvas>
 
             <div className="flex justify-between ">
