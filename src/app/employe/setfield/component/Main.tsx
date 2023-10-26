@@ -48,6 +48,8 @@ export default function Main() {
     { value: "Qualification Details", id: 3 },
     { value: "Document Upload", id: 4 },
   ];
+
+  console.log("first");
   return (
     <div className="max-w-full mx-auto p-4 md:p-8 lg:p-12">
       {step !== 5 && (
