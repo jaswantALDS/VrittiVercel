@@ -1,8 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import TextInput from "@/components/textinput";
-import ComboSelectBox from "./ComboSelectBox";
-import ComboEbox from "@/components/controls/ComboEbox";
 import EmployeeController from "@/controllers/employee";
 
 import { Formik, FieldArray } from "formik";

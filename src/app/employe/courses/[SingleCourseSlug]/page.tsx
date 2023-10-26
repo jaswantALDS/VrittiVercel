@@ -309,7 +309,10 @@ const SingleCourse = ({ params }: { params: { SingleCourseSlug: string } }) => {
                 </p>
                 {modules &&
                   modules.results.map((item: any, index: number) => (
-                    <div className="flex gap-5 border  rounded-md  p-3">
+                    <div
+                      key={index}
+                      className="flex gap-5 border  rounded-md  p-3"
+                    >
                       <Image
                         src={item?.feature_image}
                         alt="image"
