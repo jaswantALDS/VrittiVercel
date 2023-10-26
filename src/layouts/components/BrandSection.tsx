@@ -9,7 +9,7 @@ export default function BrandSection() {
     <div className="flex w-full justify-between items-center">
       {!isDrawerCollapsed && (
         <div className="text-xl font-bold italic text-orange-400 tracking-tight">
-          Flicker
+          Vritti
         </div>
       )}
 

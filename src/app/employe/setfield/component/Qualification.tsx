@@ -29,7 +29,7 @@ type schema = {
 
 export default function Qualifications({
   handleNext,
-  user
+  user,
 }: QualificationsProps) {
   const auth = new EmployeeController(user.accessToken);
   const [qualType, setQualType] = useState<any>("");
@@ -136,7 +136,7 @@ export default function Qualifications({
                   label={"Qualification"}
                   name={"qualification"}
                   onChange={(e: any) => {
-                    console.log("quali_", e);
+                    console.log("quali_", e.value);
                     setQualType(e.relative);
                     setFieldValue("qualification", e.value);
                   }}

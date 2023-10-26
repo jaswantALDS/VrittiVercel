@@ -219,4 +219,94 @@ export default class EmployeeController {
       throw error;
     }
   };
+
+  getCourses = async () => {
+    try {
+      const res = await axios.get(`${Constants.get_courses}`);
+      return res;
+    } catch (error: any) {
+      console.debug(error);
+      throw error;
+    }
+  };
+
+  getSingleCourse = async (slug: any) => {
+    try {
+      const res = await axios.get(`${Constants.get_courses}${slug}/`);
+      return res;
+    } catch (error: any) {
+      console.debug(error);
+      throw error;
+    }
+  };
+
+  checkEnrollment = async (id: any) => {
+    try {
+      const res = await axios.get(`${Constants.check_enroll}${id}/`, {
+        headers: {
+          ...this.header.headers,
+        },
+      });
+      return res;
+    } catch (error: any) {
+      console.debug(error);
+      throw error;
+    }
+  };
+
+  getCourseModules = async (id: any) => {
+    try {
+      const res = await axios.get(`${Constants.course_modules}${id}`, {
+        headers: {
+          ...this.header.headers,
+        },
+      });
+      return res;
+    } catch (error: any) {
+      console.debug(error);
+      throw error;
+    }
+  };
+
+  getCourseFaq = async (id: any) => {
+    try {
+      const res = await axios.get(`${Constants.course_faq}${id}`, {
+        headers: {
+          ...this.header.headers,
+        },
+      });
+      return res;
+    } catch (error: any) {
+      console.debug(error);
+      throw error;
+    }
+  };
+
+  getCourseReview = async (id: any) => {
+    try {
+      const res = await axios.get(`${Constants.course_review}${id}`, {
+        headers: {
+          ...this.header.headers,
+        },
+      });
+      return res;
+    } catch (error: any) {
+      console.debug(error);
+      throw error;
+    }
+  };
+
+  addCart = async (cartID: any) => {
+    try {
+      const res = await axios.post(`${Constants.add_cart}`, cartID, {
+        headers: {
+          ...this.header.headers,
+        },
+      });
+      return res;
+    } catch (error: any) {
+      console.debug(error);
+      throw error;
+    }
+  };
 }

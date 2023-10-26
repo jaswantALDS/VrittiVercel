@@ -1,6 +1,6 @@
 export class Constants {
   static API_URL = "https://backend.vrittigroup.com/"; // Define with an initial value
-  // static API_URL = "http://192.168.0.15:8000/"; // Define with an initial value
+  // static API_URL = "http://192.168.0.24:8000/"; // Define with an initial value
   static X_API_KEY: "X API Key";
   static loginEmployer = `${Constants.API_URL}employer/login/`;
   static me = `${Constants.API_URL}employer/me/`;
@@ -36,6 +36,12 @@ export class Constants {
   static employerprefix_no = `${Constants.API_URL}masters/dial-codes/`;
   static employercountry = `${Constants.API_URL}localization/countries/`;
   static get_national_id = `${Constants.API_URL}localization/national-cards/?country=`;
+  static get_courses = `${Constants.API_URL}catalogue/courses/`;
+  static check_enroll = `${Constants.API_URL}employee/check-course-subscription/`;
+  static course_modules = `${Constants.API_URL}catalogue/modules/?course_id=`;
+  static course_faq = `${Constants.API_URL}catalogue/faqs/?course_id=`;
+  static course_review = `${Constants.API_URL}catalogue/reviews/?course_id=`;
+  static add_cart = `${Constants.API_URL}employee/cart/`;
 
   static hr = `${Constants.API_URL}hr/`;
   static hr_login = `${Constants.hr}login/`;

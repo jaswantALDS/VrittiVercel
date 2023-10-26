@@ -6,7 +6,7 @@ import LayoutContextProvider, { LayoutContext } from "./context";
 import DrawerToggle from "./components/DrawerToggle";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 function Main({ children }: { children: ReactNode }) {
   const { isDrawerCollapsed } = useContext(LayoutContext);
@@ -14,7 +14,7 @@ function Main({ children }: { children: ReactNode }) {
 
   return (
     <>
-      {isDrawerCollapsed && (
+      {isDrawerCollapsed && !pathName.startsWith("/auth/employee/SignIn") && (
         <div className="block md:hidden fixed top-0 left-0">
           <DrawerToggle />
         </div>
@@ -22,21 +22,31 @@ function Main({ children }: { children: ReactNode }) {
       <div className="flex w-full p-2 h-screen justify-between overflow-hidden">
         <div
           className={`${
-            isDrawerCollapsed
-              ? "opacity-0 w-[0%] md:opacity-100 md:w-[4%]"
+            isDrawerCollapsed ||
+            pathName.startsWith("/employe/setfield") ||
+            pathName.startsWith("/auth/employee/SignIn") ||
+            pathName.startsWith("/auth/employee/register")
+              ? "hidden"
               : "opacity-1 w-full md:w-[15%]"
           } transition-all`}
         >
-          <Sidebar />
+          {!pathName.startsWith("/employe/setfield") &&
+            !pathName.startsWith("/auth/employee/register") &&
+            !pathName.startsWith("/auth/employee/SignIn") && <Sidebar />}
         </div>
         <main
           className={`${
-            isDrawerCollapsed
+            isDrawerCollapsed ||
+            pathName.startsWith("/employe/setfield") ||
+            pathName.startsWith("/auth/employee/register") ||
+            pathName.startsWith("/auth/employee/SignIn")
               ? "w-full  md:w[95%] md:px-2"
               : "opacity-10 md:opacity-100 w-0 md:w-[84%] md:px-0 "
           } transition-all px-4 md:py-1 overflow-y-scroll scrollbar-hide relative`}
         >
-          <Header />
+          {!pathName.startsWith("/employe/setfield") &&
+            !pathName.startsWith("/auth/employee/register") &&
+            !pathName.startsWith("/auth/employee/SignIn") && <Header />}
           <AnimatePresence mode="wait" initial={true}>
             <motion.div className="relative">
               <motion.div
@@ -58,6 +68,7 @@ function Main({ children }: { children: ReactNode }) {
     </>
   );
 }
+
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <LayoutContextProvider>

@@ -7,26 +7,16 @@ export async function middleware(req: NextRequest) {
   const { nextUrl } = req;
   let url = req.nextUrl.clone();
   const token = await getToken({ req, secret: process.env.jwt_secret });
-  console.log(token)
-   if (
-    nextUrl.pathname.startsWith("/login") ||
-    nextUrl.pathname.startsWith("/register")
-  ) {
-    if (token) {
-      url.pathname = "/hr";
-      return NextResponse.redirect(url);
-    }
-    return NextResponse.next();
-  } 
-  
-  else if (nextUrl.pathname == "/auth/employee/register ") {
+  if (nextUrl.pathname == "/auth/employee/register" || nextUrl.pathname == "/auth/employee/SignIn") {
     if (token && token.type == "employee") {
+      console.log("type employee in ")
       if(token.is_completed){
+        console.log("isCompleted")
         url.pathname = "/employe/dashboard";
 
         return NextResponse.redirect(url);
       }else{
-        console.log("SDfs")
+        console.log("notCompleted")
         url.pathname = "/employe/setfield";
        
         
@@ -39,10 +29,10 @@ export async function middleware(req: NextRequest) {
     if(token){
       return NextResponse.next()
     }
-    url.pathname = "/auth/employee/register"
+    url.pathname = "/auth/employee/SignIn"
     return NextResponse.redirect(url)
   }else if(nextUrl.pathname == "/"){
-    url.pathname = "/auth/employee/register"
+    url.pathname = "/auth/employee/SignIn"
     return NextResponse.redirect(url)
   }
 

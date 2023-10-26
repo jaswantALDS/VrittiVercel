@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import Image from "next/image";
 import TextInput from "@/components/textinput";
 import ClientController from "@/controllers/employee";
+import OtpInput from "@/app/employe/setfield/component/OtpComp";
 
 const validationSchema = Yup.object().shape({
   otp: Yup.string()
@@ -89,7 +90,7 @@ export default function VerifyEmail({
           //     </div>
           <div>
             <div className="space-y-4 py-4">
-              <div>
+              {/* <div>
                 <TextInput
                   name="otp"
                   type="number"
@@ -100,6 +101,20 @@ export default function VerifyEmail({
                   error={errors.otp}
                   istouched={touched.otp}
                 />
+              </div> */}
+              <div className="mt-2  w-full flex justify-end  items-center">
+                <div className="w-full">
+                  <OtpInput
+                    numDigits={6}
+                    onComplete={(otpValue) => {
+                      console.log(otpValue);
+                      // This function will be called when all digits are filled
+                      setFieldValue("otp", otpValue);
+                      // handleOtpToServer(otpValue, setFieldError);
+                    }}
+                    error={errors.phoneOtp}
+                  />
+                </div>
               </div>
             </div>
             <div className="px-2 py-3 mt-5 text-center bg-blue-600 cursor-pointer rounded-xl my-6 mb-12">

@@ -52,3 +52,10 @@ export const DocumentValidations = Yup.object().shape({
     expiry_date: Yup.date().required("Expiry Date is required"),
   }),
 });
+
+export const SignInValidations = Yup.object().shape({
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required"),
+  password: Yup.string().required("Password is required"),
+});

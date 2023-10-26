@@ -542,7 +542,7 @@ export default function Contactinfo({ handleNext, handlePrev, user }: any) {
 
               {/* State */}
 
-              {states && (
+              {values?.country && (
                 <div className="mt-2 relative  ">
                   <CustomComboBox
                     label="State"
@@ -565,7 +565,7 @@ export default function Contactinfo({ handleNext, handlePrev, user }: any) {
               )}
 
               {/* City */}
-              {cities && (
+              {values?.state && (
                 <div className="mt-2 relative  ">
                   <CustomComboBox
                     label="City"

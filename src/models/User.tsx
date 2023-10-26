@@ -22,6 +22,7 @@ export interface User {
   preferred_trade: null | string;
   status_type: string;
   is_verified: boolean;
+  is_interview: boolean;
   personal_profile_completed: boolean;
   employment_profile_completed: boolean;
   qualifications_profile_completed: boolean;

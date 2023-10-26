@@ -20,7 +20,6 @@ type schema = {
 };
 
 export default function PersonalDetails({ userEmail }: any) {
-  const router = useRouter();
   const auth = new EmployeeController();
 
   const handleSubmit = (
@@ -76,7 +75,7 @@ export default function PersonalDetails({ userEmail }: any) {
         setFieldError,
         isSubmitting,
       }: any) => (
-        <div className="">
+        <div className="mb-0 pb-0">
           <div className="text-2xl font-[600] text-left flex items-center gap-4">
             <h1>Personal Details</h1>
             <div className="w-10 h-1 bg-gray-600"></div>
@@ -136,7 +135,7 @@ export default function PersonalDetails({ userEmail }: any) {
             </div>
           </div>
           <div
-            className="px-2 py-3 mt-5  text-center bg-blue-600 cursor-pointer rounded-xl  my-6 mb-12"
+            className="px-2 py-3 mt-5  text-center bg-blue-600 cursor-pointer rounded-xl  "
             onClick={handleSubmit}
           >
             <p className="text-white">Continue</p>

@@ -5,6 +5,7 @@ import { Inter, Poppins } from "next/font/google";
 import { AnimatePresence } from "framer-motion";
 import RecoilContextProvider from "./providers/recoilContextProvider";
 import NextAuthSessionProvider from "./providers/nextAuthSessionProvider";
+import Providers from "@/store/Providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,8 +38,11 @@ export default function RootLayout({
     <html lang="en">
       <NextAuthSessionProvider>
         <body className={poppinsRegular.className}>
-          {/* <DashboardLayout>{children}</DashboardLayout> */}
-          <RecoilContextProvider>{children}</RecoilContextProvider>
+          <Providers>
+            <RecoilContextProvider>
+              <DashboardLayout>{children}</DashboardLayout>{" "}
+            </RecoilContextProvider>
+          </Providers>
         </body>
       </NextAuthSessionProvider>
     </html>
