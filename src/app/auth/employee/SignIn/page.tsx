@@ -7,6 +7,7 @@ import TextInput from "@/components/textinput";
 import { AppAssets } from "@/constants/assets";
 import { SignInValidations } from "@/settings/validations";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 type schema = {
   email: string;
@@ -14,6 +15,7 @@ type schema = {
 };
 
 export default function SignIn() {
+  const router = useRouter();
   const handleSignIn = (
     values: schema,
     { setFieldError, setSubmitting }: FormikHelpers<schema>
@@ -23,10 +25,16 @@ export default function SignIn() {
     signIn("employee-login", {
       username: lowercasedEmail,
       password: values.password,
-      // redirect: false,
+      redirect: false,
     })
-      .then((res) => {
+      .then((res: any) => {
         console.log("login Call", res);
+        if (res?.ok == true) {
+          router.push("/employe/dashboard");
+        } else {
+          console.log("Error", res?.error);
+          setFieldError("email", res?.error);
+        }
       })
       .catch((err: any) => console.log(err));
   };

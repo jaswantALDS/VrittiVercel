@@ -26,7 +26,7 @@ export class Menu {
       showGroupTitle: false,
       menu: [
         {
-          menuItem: "Dashboard",
+          menuItem: "Home",
           href: "/employe/dashboard",
           subMenu: [],
           icon: CgMenuLeftAlt,

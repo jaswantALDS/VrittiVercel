@@ -13,8 +13,8 @@ import { store } from "@/store";
 import MessageCard from "@/components/ui/MessageCard";
 import StarRating from "@/components/ui/StarRating";
 export default function Dashboard() {
-  let user: any = store.getState().userReducer.user;
-
+  const user: any = store.getState().userReducer.user;
+  console.log(user);
   return (
     <>
       {!user.is_verified ? (

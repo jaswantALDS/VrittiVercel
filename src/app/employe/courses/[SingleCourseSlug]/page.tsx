@@ -121,7 +121,6 @@ const SingleCourse = ({ params }: { params: { SingleCourseSlug: string } }) => {
   const taxAmount = (subtotal * taxRate) / 100;
   const total = subtotal + taxAmount;
 
-  console.log("first");
   return (
     <div>
       <CardPrototype>
@@ -282,23 +281,23 @@ const SingleCourse = ({ params }: { params: { SingleCourseSlug: string } }) => {
                   </li>
                 ))}
               </ul> */}
-                  {/* <ul className="mt-3 lg:mt-10  flex  justify-around items-center overflow-auto scrollbar-hide">
-                {tabs.map((tab, index) => (
-                  <li key={index} className="">
-                    <button
-                      className={`text-dark transition-all duration-300 font-semibold text-[11px] md:text-base ${
-                        selectedTab === index
-                          ? "border-b-[4px] border-newBlue"
-                          : ""
-                      }`}
-                      onClick={() => setSelectedTab(index)}
-                    >
-                      {tab}
-                    </button>
-                  </li>
-                ))}
-              </ul> */}
-                  <Tabs
+                  <ul className="mt-3 lg:mt-10  flex  justify-around items-center overflow-auto scrollbar-hide">
+                    {tabs.map((tab, index) => (
+                      <li key={index} className="">
+                        <button
+                          className={`text-dark transition-all duration-300 font-semibold text-[11px] md:text-base ${
+                            selectedTab === index
+                              ? "border-b border-blue-500"
+                              : ""
+                          }`}
+                          onClick={() => setSelectedTab(index)}
+                        >
+                          {tab}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                  {/* <Tabs
                     value={selectedTab}
                     onChange={handleChange}
                     indicatorColor="primary"
@@ -324,7 +323,7 @@ const SingleCourse = ({ params }: { params: { SingleCourseSlug: string } }) => {
                         }}
                       />
                     ))}
-                  </Tabs>
+                  </Tabs> */}
                 </nav>
               </div>
             </div>
