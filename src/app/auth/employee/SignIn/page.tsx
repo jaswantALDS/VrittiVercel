@@ -30,6 +30,7 @@ export default function SignIn() {
       .then((res: any) => {
         console.log("login Call", res);
         if (res?.ok == true) {
+          console.log("first");
           router.push("/employe/dashboard");
         } else {
           console.log("Error", res?.error);
